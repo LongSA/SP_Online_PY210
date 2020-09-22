@@ -4,7 +4,7 @@
 # ----------------------------------------------------------------------------------------
 # Lesson02
 # Fibonacci Series Exercise (series.py)
-# Steve Long 2020-09-20 | v0
+# Steve Long 2020-09-20 | v1
 #
 # Requirements
 # ------------
@@ -59,6 +59,7 @@
 # History:
 # --------
 # 000/2020-09-20/sal/Created.
+# 001/2020-09-21/sal/Refactored functions fibonacci and lucas.
 # ========================================================================================
 
 import sys
@@ -74,18 +75,10 @@ def fibonacci(n):
 	       
 	Exit:    Returns series element value (int) at <n>.
 	
-	History: 2020-09-20/sal/Created
+	History: 000/2020-09-20/sal/Created
+	         001/2020-09-21/sal/Replaced code body with call to sum_series.
 	"""
-	r = 0
-	if (n == 0):
-		r = 0
-	elif (n == 1):
-		r = 1
-	elif (n > 1):
-		r = fibonacci(n - 2) + fibonacci(n - 1)
-	else:
-		r = 0
-	return r 
+	return sum_series(n, 0, 1)
 	
 def lucas(n):
 	"""
@@ -98,18 +91,10 @@ def lucas(n):
 	       
 	Exit:    Returns series element value (int) at <n>.
 	
-	History: 2020-09-20/sal/Created
+	History: 000/2020-09-20/sal/Created
+	         001/2020-09-21/sal/Replaced code body with call to sum_series.	
 	"""
-	r = 0
-	if (n == 0):
-		r = 2
-	elif (n == 1):
-		r = 1
-	elif (n > 1):
-		r = lucas(n - 2) + lucas(n - 1)
-	else:
-		r = 0
-	return r 
+	return sum_series(n, 2, 1) 
 	
 def sum_series(n, elem0 = 0, elem1 = 1):
 	"""
